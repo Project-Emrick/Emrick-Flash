@@ -1,0 +1,35 @@
+{
+  "name": "Emrick Heltec Receiver",
+  "version": "2a36c24 (10-03-2026)",
+  "commit": "2a36c24",
+  "date": "2026-10-03",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "bootloader.bin",
+          "offset": 0,
+          "sha256": "1776e4dd896a69d0a5c2e79957b0e2a88aa4129b1381d6478683515a1f6af343"
+        },
+        {
+          "path": "partitions.bin",
+          "offset": 32768,
+          "sha256": "1d9cca96de0fe07ad7fc0648b9878ddecd9ce565e38b589ad20fea698ed4c80c"
+        },
+        {
+          "path": "boot_app0.bin",
+          "offset": 57344,
+          "sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0"
+        },
+        {
+          "path": "firmware.bin",
+          "offset": 65536,
+          "sha256": "e28f2edf565116a1a919174d302655f1e63070b5bf1a133bd7815d5ebf5e0677"
+        }
+      ]
+    }
+  ]
+}

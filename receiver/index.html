@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emrick Receiver Flasher</title>
+  <!-- Built and published automatically from the main branch of Emrick-Firmware. Do not edit in Emrick-Flash. -->
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f6f7f9; color: #1d2329; margin: 0; padding: 32px 16px; }
+    main { max-width: 560px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    h1 { margin: 0 0 4px; font-size: 1.5rem; }
+    .version { color: #5b6670; margin: 0 0 24px; font-family: ui-monospace, monospace; }
+    ol { padding-left: 20px; line-height: 1.6; }
+    .note { background: #fff6e0; border-left: 4px solid #e0a100; padding: 10px 14px; margin-top: 20px; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #15181b; color: #e6e9ec; }
+      main { background: #1f2327; box-shadow: none; }
+      .version { color: #9aa5af; }
+      .note { background: #3a3220; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Emrick Receiver Flasher</h1>
+  <p class="version" id="version">Loading version...</p>
+  <ol>
+    <li>Use Chrome or Edge on a computer.</li>
+    <li>Plug in one receiver with a USB cable.</li>
+    <li>Click <b>Install</b>, pick the receiver's port, and wait for it to finish.</li>
+  </ol>
+  <esp-web-install-button manifest="manifest.json">
+    <span slot="unsupported">This browser can't flash boards. Use Chrome or Edge on a computer.</span>
+    <span slot="not-allowed">Flashing needs a secure (https) connection.</span>
+  </esp-web-install-button>
+  <p class="note">Close anything else using the receiver's port first (Emrick Designer, a serial monitor). Board ID, label, and show data are kept.</p>
+</main>
+<script>
+  fetch("manifest.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(m => { document.getElementById("version").textContent = "Version " + m.version; })
+    .catch(() => { document.getElementById("version").textContent = "Version unavailable"; });
+</script>
+</body>
+</html>
